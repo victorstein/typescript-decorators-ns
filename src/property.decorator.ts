@@ -1,17 +1,18 @@
-function IsNumber<T> (constructor: T, property: string) {
-  let value: number
+function IsNumber<T> (target: T, property: string) {
+  let age: number
+
   function get () {
-    return value
+    return age
   }
 
-  function set (newValue: number) {
-    if (typeof newValue !== 'number') {
-      throw new Error('The age value is not a number')
+  function set (newAge: number) {
+    if (typeof newAge !== 'number') {
+      throw new Error('What are you doing?! The age must be a number')
     }
-    value = newValue
+    age = newAge
   }
 
-  Object.defineProperty(constructor, property, {
+  Object.defineProperty(target, property, {
     get,
     set
   })
@@ -32,5 +33,5 @@ class User {
   }
 }
 
-const user = new User({ name: 'Alfonso', email: 'afonsog@nicasource.com', pass: '1234', age: 52 })
+const user = new User({ name: 'Alfonso', email: 'afonsog@nicasource.com', pass: '1234', age: '52' })
 console.log(user.age)
