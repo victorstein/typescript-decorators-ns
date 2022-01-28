@@ -1,5 +1,10 @@
+enum Url {
+  PROD = 'production URL',
+  DEV = 'development URL'
+}
+
 class FetchAnimals {
-  url: string
+  url: Url
 
   constructor (url) {
     this.url = url
@@ -15,6 +20,6 @@ class FetchAnimals {
 
 }
 
-const imagesFetcher = new FetchAnimals('Development URL')
+const imagesFetcher = new FetchAnimals(Url.DEV)
 imagesFetcher.fetchCats()
 imagesFetcher.fetchDogs()
